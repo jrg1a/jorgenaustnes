@@ -1,0 +1,489 @@
+/*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+:root {
+  --header-height: 3rem;
+  --font-semi: 600;
+  /*===== Colores =====*/
+  /*Purple 260 - Red 355 - Blue 224 - Pink 340*/
+  /* HSL color mode */
+  --hue-color: 224;
+  --first-color: hsl(var(--hue-color), 89%, 60%);
+  --second-color: hsl(var(--hue-color), 56%, 12%);
+  /*===== Fuente y tipografia =====*/
+  --body-font: "Poppins", sans-serif;
+  --big-font-size: 2rem;
+  --h2-font-size: 1.25rem;
+  --normal-font-size: .938rem;
+  --smaller-font-size: .75rem;
+  /*===== Margenes =====*/
+  --mb-2: 1rem;
+  --mb-4: 2rem;
+  --mb-5: 2.5rem;
+  --mb-6: 3rem;
+  /*===== z index =====*/
+  --z-back: -10;
+  --z-fixed: 100;
+}
+
+@media screen and (min-width: 968px) {
+  :root {
+    --big-font-size: 3.5rem;
+    --h2-font-size: 2rem;
+    --normal-font-size: 1rem;
+    --smaller-font-size: .875rem;
+  }
+
+  .container {
+    flex-direction: row;
+  }
+  .home_data, .media {
+    width: 100%;
+  }
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
+ * Extends the .visually-hidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+  visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * The use of `table` rather than `block` is only necessary if using
+ * `::before` to contain the top-margins of child elements.
+ */
+
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: #fff !important;
+    color: #000 !important;
+    /* Black prints faster */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
+#socials-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#socials-container img {
+  width: 30px;  /* adjust as needed */
+  height: 30px; /* adjust as needed */
+}
+
+#socials-container a {
+  margin: 0 10px;  /* adjust as needed */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+
+}
+
+.main-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: auto;
+  margin-top: 150px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px; /* Add some padding to the sides of the header */
+}
+
+header h2 {
+  margin: 0;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+}
+
+.navigasjon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:0;
+  margin-bottom: 0;
+}
+.navigasjon ul {
+  display: flex;
+  list-style-type: none; /* This will remove the bullet points */
+  padding: 0; /* This will remove the padding */
+}
+.navigasjon ul li {
+  margin-right: 20px;  /* adjust as needed */
+  margin-left: 20px;   /* adjust as needed */
+}
+.navigasjon ul li a {
+  text-decoration: none;  /* removes the underline */
+  padding: 10px 20px;     /* adds some space around the text */
+  color: #000;           /* changes the text color */
+  border-radius: 5px;    /* rounds the corners of the button */
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
+
+.navigasjon ul li a:hover {
+  background-color: #e8e8e8;  /* changes the background color when hovered */
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px;
+  margin:0
+}
+
+footer p {
+  margin: 0;
+  margin-top: 50px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: initial;
+
+}
+
+#socials-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main h1 {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+/*
+.media img {
+  width: 900px;
+  height: 600px;
+}
+*/
+
+.media img {
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px grey;
+  border: 1px solid black;
+  transition: width 2s;
+
+  width: 600px;  /* adjust as needed */
+  height: 400px; /* adjust as needed */
+}
+
+.home_data {
+  align-self: center;
+  width: 50%;
+
+}
+
+.home_title {
+  font-size: var(--big-font-size);
+  margin-bottom: var(--mb-5);
+}
+
+.home_title-color {
+  color: var(--first-color);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.home_data {
+  align-self: center;
+  width: 50%;
+}
+
+.media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  width: 50%;
+}
+
+
+.button-section {
+  display: flex;
+  justify-content: left;
+  margin: 250px 0 250px 150px; /* Adjust as needed */
+}
+
+.button-section a {
+  margin: 0 50px; /* Adjust as needed */
+}
+
+.button-section button {
+  font-family: 'Roboto', sans-serif; /* Match the font with the rest of your design */
+  padding: 12px 30px; /* Add some padding */
+  border-radius: 5px; /* Round the corners */
+  border: none; /* Remove the default button border */
+  background-color: var(--first-color); /* Use the same color as your design */
+  color: #fff; /* Change the text color to white */
+  cursor: pointer; /* Change the cursor to a hand when hovering over the button */
+  transition: background-color 0.3s ease; /* Add a transition for a smooth color change */
+  font-weight: bold;
+}
+
+.button-section button:hover {
+  background-color: var(--second-color); /* Change the color when hovering over the button */
+}
+
+/* CSS for larger screens */
+@media screen and (min-width: 768px) {
+  .button-section {
+    justify-content: center;
+    margin: 250px 0; /* Adjust as needed */
+  }
+}
+
+/* CSS for medium screens */
+@media screen and (max-width: 767px) and (min-width: 480px) {
+  .button-section {
+    justify-content: center;
+    margin: 150px 0; /* Adjust as needed */
+  }
+}
+
+/* CSS for small screens */
+@media screen and (max-width: 479px) {
+  .button-section {
+    justify-content: center;
+    margin: 100px 0; /* Adjust as needed */
+  }
+}
