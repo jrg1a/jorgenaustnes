@@ -308,7 +308,8 @@ body {
   flex-direction: column;
   min-height: 100vh;
   justify-content: center;
-
+  padding-top: 20px;
+  padding-bottom: 50px; /* Legg til padding nederst for å gi plass til footeren */
 }
 
 .main-content-wrapper {
@@ -324,6 +325,10 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0 20px; /* Add some padding to the sides of the header */
+  position: fixed;
+  width: 100%;
+  top: 5px;
+  z-index: 1000;
 }
 
 header h2 {
@@ -363,18 +368,22 @@ header h2 {
 
 footer {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 2px;
-  margin:0
+  justify-content: space-between; /* For å plassere elementene i hver sin ende */
+  padding: 0 20px; /* Legg til litt padding på sidene */
+  margin: 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #f8f8f8; /* Endre bakgrunnsfarge om nødvendig */
+  z-index: 100;
+  height: 50px; /* Juster høyden etter behov */
 }
 
 footer p {
   margin: 0;
-  margin-top: 50px;
   font-family: 'Roboto', sans-serif;
   font-weight: initial;
-
 }
 
 #socials-container {
@@ -382,6 +391,18 @@ footer p {
   justify-content: center;
   align-items: center;
 }
+
+#socials-container img {
+  width: 30px;  /* juster etter behov */
+  height: 30px; /* juster etter behov */
+}
+
+#socials-container a {
+  margin: 0 10px;  /* juster etter behov */
+}
+
+
+
 main h1 {
   text-align: center;
   font-family: 'Roboto', sans-serif;
